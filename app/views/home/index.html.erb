@@ -19,7 +19,9 @@
           <p>Only <%= pluralize book.inventory, 'copy' %> left!</p>
         <% end %>
         <p>
-          <%= link_to "Buy NOW NOW NOW", "#", class: "btn btn-large btn-success btn-block" %>
+          <%= link_to add_to_cart_path(book_id: book.id), method: :post,  class: "btn btn-large btn-success btn-block" do %>
+            <span class='glyphicon glyphicon-shopping-cart'></span> Add to Cart
+          <% end %>
         </p>
       </div>
     </div>
