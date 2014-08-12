@@ -1,0 +1,41 @@
+
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= cart_item.book.title %></td>
+        <td>
+          <%= simple_form_for cart_item, url: update_cart_item_path(cart_item), remote: true do |f| %>
+          <%= f.input :quantity, label: false, as: :select, collection: (1..cart_item.book.inventory) %>
+          <%= f.submit %>
+          <% end %>
+        </td>
+        <td><%= number_to_currency cart_item.book.price %></td>
+        <td><%= number_to_currency cart_item.total %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><strong>Total</strong></td>
+      <td><%= number_to_currency @cart.total %> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p>
+  <%= link_to "Checkout", "#", class: "btn btn-lg btn-success"%>
+  or
+  <%= link_to "Continue Shopping", root_path %>
+</p>
