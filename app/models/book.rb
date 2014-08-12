@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
 
+  mount_uploader :image, PhotoUploader
+
   def price
     sales_price_in_cents / 100.0
   end
