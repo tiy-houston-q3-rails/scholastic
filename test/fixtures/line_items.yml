@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 1
+  price_paid_in_cents: 1
+  order_id: 
+  book_id: 
+
+two:
+  quantity: 1
+  price_paid_in_cents: 1
+  order_id: 
+  book_id: 

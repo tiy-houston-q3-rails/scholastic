@@ -1,0 +1,26 @@
+
+<ul class="list-unstyled">
+<% @books.each do |book| %>
+  <li>
+    <p class="pull-right">
+      <%= link_to "Buy NOW NOW NOW", "#", class: "btn btn-large btn-success" %>
+    </p>
+    <p class="page-title">
+    <h2>
+      <%= book.title %>
+      <br/>
+      <small><%= book.author %></small>
+    </h2>
+    <p>
+    <p>
+      <%= number_to_currency book.price %>
+      <span class="label label-success">Save <%= number_to_percentage(book.percent_off, precision: 0)    %></span>
+      <span class="muted">over <strike><%= number_to_currency book.msrp %></strike></span>
+    </p>
+    <% if book.inventory <= 5 %>
+      <p>Only <%= pluralize book.inventory, 'copy' %> left!</p>
+    <% end %>
+
+  </li>
+<% end %>
+</ul>
