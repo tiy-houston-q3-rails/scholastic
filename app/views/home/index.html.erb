@@ -15,14 +15,21 @@
           <span class="label label-info">Save <%= number_to_percentage(book.percent_off, precision: 0)    %></span>
           <span class="muted">over <strike><%= number_to_currency book.msrp %></strike></span>
         </p>
-        <% if book.inventory <= 5 %>
-          <p>Only <%= pluralize book.inventory, 'copy' %> left!</p>
-        <% end %>
-        <p>
-          <%= link_to add_to_cart_path(book_id: book.id), method: :post,  class: "btn btn-large btn-success btn-block" do %>
-            <span class='glyphicon glyphicon-shopping-cart'></span> Add to Cart
+
+        <% if book.inventory == 0 %>
+        ALL GONE SUCKA
+        <% else %>
+
+          <% if book.inventory <= 5 %>
+            <p>Only <%= pluralize book.inventory, 'copy' %> left!</p>
           <% end %>
-        </p>
+          <p>
+            <%= link_to add_to_cart_path(book_id: book.id), method: :post,  class: "btn btn-large btn-success btn-block" do %>
+              <span class='glyphicon glyphicon-shopping-cart'></span> Add to Cart
+            <% end %>
+          </p>
+
+        <% end %>
       </div>
     </div>
   </div>

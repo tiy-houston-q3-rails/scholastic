@@ -4,4 +4,8 @@ class Cart < ActiveRecord::Base
   def total
     cart_items.map(&:total).sum
   end
+
+  def total_in_cents
+    (total * 100).to_i
+  end
 end

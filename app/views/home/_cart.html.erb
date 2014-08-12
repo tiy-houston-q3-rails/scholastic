@@ -35,7 +35,19 @@
 
 
 <p>
-  <%= link_to "Checkout", "#", class: "btn btn-lg btn-success"%>
+
+  <form action="/charge" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_4ZTpi4sGW2JMFGrxlNn6HnQ7"
+      data-name="Scholastic"
+      data-description="PAY ME FOOL! (<%= number_to_currency @cart.total %>)"
+      data-amount="<%= @cart.total_in_cents %>">
+    </script>
+  </form>
+
+
+
   or
   <%= link_to "Continue Shopping", root_path %>
 </p>

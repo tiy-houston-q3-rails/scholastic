@@ -1,0 +1,40 @@
+
+<p class="page-title">
+  <h1>Receipt: <%= @order.created_at.strftime("%A, %b %d %Y") %></h1>
+</p>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.line_items.each do |cart_item| %>
+      <tr>
+        <td><%= cart_item.book.title %></td>
+        <td><%= cart_item.quantity %>
+        </td>
+        <td><%= number_to_currency cart_item.price %></td>
+        <td><%= number_to_currency cart_item.total %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><strong>Total</strong></td>
+      <td><%= number_to_currency @order.total %> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<p>
+
+
+  <%= link_to "Continue Shopping", root_path %>
+</p>
