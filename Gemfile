@@ -48,3 +48,4 @@ gem 'mini_magick'
 gem 'bootstrap-sass'
 gem 'fog'
 gem 'dotenv-rails', group: [:development, :test]
+gem 'rails_12factor', group: [:production]
