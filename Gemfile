@@ -50,3 +50,4 @@ gem 'fog'
 gem 'dotenv-rails', group: [:development, :test]
 gem 'rails_12factor', group: [:production]
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'pg_search'

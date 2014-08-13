@@ -12,7 +12,22 @@
 <p class="alert"><%= alert %></p>
 
 <div class="container">
-<%= yield %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= form_tag root_path, method: :get do %>
+        <div class="form-group  has-feedback">
+        <label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search yo" %>
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+      </div>
+      <% end %>
+
+      <% if params[:query].present? %>
+        We found <%= pluralize @books.length, 'book' %>.
+      <% end %>
+    </div>
+  </div>
+  <%= yield %>
 </div>
 
 </body>
