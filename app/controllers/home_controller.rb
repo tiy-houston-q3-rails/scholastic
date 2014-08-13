@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:charge]
 
   def index
-    @books = Book.all
+    @books = Book.all.page(params[:page])
   end
 
   def charge
