@@ -2,8 +2,11 @@ class HomeController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, only: [:charge]
 
+  respond_to :html, :json
+  
   def index
     @books = Book.query(params).page(params[:page])
+    respond_with @books
   end
 
   def charge

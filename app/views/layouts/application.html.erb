@@ -2,14 +2,29 @@
 <html>
 <head>
   <title>Scholastic</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'  %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="page-title">
+
+        <h1><%= link_to "Scholastic", root_path %></h1>
+        <p class="pull-right">
+          <a class="fancybox-media" href="http://maps.google.com/maps?q=Start+Houston&t=h&z=17">Google Mappit</a>
+        </p>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
@@ -17,7 +32,7 @@
       <%= form_tag root_path, method: :get do %>
         <div class="form-group  has-feedback">
         <label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search yo" %>
+        <%= text_field_tag :query, params[:query], class: "form-control typeahead", placeholder: "Search yo" %>
         <span class="glyphicon glyphicon-search form-control-feedback"></span>
       </div>
       <% end %>
